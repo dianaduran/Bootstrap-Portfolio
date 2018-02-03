@@ -1,0 +1,25 @@
+li a {
+    font-family: 'PT Sans Caption', sans-serif;
+    color: slategrey;
+}
+
+.classH1 {
+    font-family: 'Berkshire Swash', cursive;
+    font-weight: bold;
+    color: slategrey
+}
+
+img {
+    width: 17%;
+    border-radius: 44% !important;
+    border: 10px solid white !important
+}
+
+a img {
+    width: 9%;
+}
+
+.icon-Text {
+    color: black !important;
+    text-decoration: none !important;
+}
