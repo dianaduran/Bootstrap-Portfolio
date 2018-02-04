@@ -9,7 +9,7 @@ li a {
     color: slategrey
 }
 
-img {
+.imgMy {
     width: 17%;
     border-radius: 44% !important;
     border: 10px solid white !important
@@ -22,4 +22,27 @@ a img {
 .icon-Text {
     color: black !important;
     text-decoration: none !important;
+}
+
+.nav-link:active {
+    background: slategrey;
+    color: #e9e9e9
+}
+
+.nav-link:hover {
+    color: #e9e9e9
+}
+
+.proj1 {
+    background-image: url("https://placehold.it/300x300");
+    height: 300px;
+    width: 300px;
+}
+
+.mt {
+    margin-top: 216px;
+}
+
+.icon-Footer {
+    width: 3%
 }
