@@ -1,5 +1,6 @@
-li a {
-    font-family: 'PT Sans Caption', sans-serif;
+li a,
+h3 {
+    font-family: 'PT Sans Caption', sans-serif !important;
     color: slategrey;
 }
 
@@ -39,10 +40,16 @@ a img {
     width: 300px;
 }
 
-.mt {
-    margin-top: 216px;
+.proj1:hover {
+    opacity: 0.5;
 }
 
 .icon-Footer {
     width: 3%
+}
+
+.styleHr {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
