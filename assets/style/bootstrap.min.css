@@ -9079,6 +9079,9 @@ button.bg-dark:hover {
     .text-xl-center {
         text-align: center!important
     }
+    .modal {
+        padding: 0;
+    }
 }
 
 .text-lowercase {

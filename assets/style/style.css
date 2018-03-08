@@ -146,11 +146,12 @@ h3 {
 
 /*Modal*/
 
-.portfolio-modal .modal-dialog {
+
+/* .portfolio-modal .modal-dialog {
     margin: 0;
     height: 100%;
     width: auto;
-}
+} */
 
 .portfolio-modal .modal-content {
     border-radius: 0;
