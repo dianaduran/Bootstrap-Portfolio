@@ -10,12 +10,8 @@ $("#contact-form").submit(function(event) {
 
    /* Get from elements values */
    var values = $(this).serialize();
-   var url="././mail/contact_me.php";
+   var url=$("#contact-form").attr('action');
 
-   /* Send the data using post and put the results in a div */
-   /* I am not aborting previous request because It's an asynchronous request, meaning 
-      Once it's sent it's out there. but in case you want to abort it  you can do it by  
-      abort(). jQuery Ajax methods return an XMLHttpRequest object, so you can just use abort(). */
       ajaxRequest= $.ajax({
            url: url,
            type: "post",
