@@ -8,13 +8,15 @@ $(function() {
        
         event.preventDefault();
 
- 
-    console.log($('#contact-form').serialize());
     // Submit the form using AJAX.
     $.ajax({
         type: 'POST',
         url: $('#contact-form').attr('action'),
-        data: $('#contact-form').serialize()
+        data:{
+            name: $('#name').val(''),
+            email:  $('#email').val(''),
+            message: $('#message').val('')
+            },
     }).done(function(response) {
         // Make sure that the formMessages div has the 'success' class.
         $(formMessages).removeClass('error');
