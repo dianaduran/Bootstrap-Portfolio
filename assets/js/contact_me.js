@@ -16,7 +16,7 @@ $(function() {
             name: $('#name').val(''),
             email:  $('#email').val(''),
             message: $('#message').val('')
-            },
+            }
     }).done(function(response) {
         // Make sure that the formMessages div has the 'success' class.
         $(formMessages).removeClass('error');
