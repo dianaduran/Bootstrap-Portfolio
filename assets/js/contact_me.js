@@ -12,9 +12,9 @@ $(function() {
         // Stop the browser from submitting the form.
         event.preventDefault();
 
-        // TODO
-        // Serialize the form data.
+       // Serialize the form data.
     var formData = $('#contact-form').serialize();
+    console.log(formData);
     // Submit the form using AJAX.
     $.ajax({
         type: 'POST',
