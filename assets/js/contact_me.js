@@ -7,19 +7,18 @@ $(function() {
     $('#contact-form').on('submit',function(event) {
        
         event.preventDefault();
-        var name=$('#name').val('');
-        var email=$('#email').val('');
-        var message=$('#message').val('');
+        var name=$('#name').val();
+        console.log(name);
+        var email=$('#email').val();
+        var message=$('#message').val();
+        var dat=name+"+"+email+"+"+message;
+        console.log(dat);
 
     // Submit the form using AJAX.
     $.ajax({
         type: 'POST',
         url: $('#contact-form').attr('action'),
-        data:{
-            name: name,
-            email:  email,
-            message: message
-            }
+        data:dat
     }).done(function(response) {
         // Make sure that the formMessages div has the 'success' class.
         $(formMessages).removeClass('error');
