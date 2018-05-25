@@ -1,111 +1,38 @@
-// Contact Form Scripts
+/* Attach a submit handler to the form */
+$("#contact-form").submit(function(event) {
+    var ajaxRequest;
 
-$(function() {
+   /* Stop form from submitting normally */
+   event.preventDefault();
 
-    
-    $("#contact-form").submit(function(event){
+   /* Clear result div*/
+   $("#messages").html('');
 
-        // Prevent default posting of form - put here to work in case of errors
-        event.preventDefault();
+   /* Get from elements values */
+   var values = $(this).serialize();
+   var url="././mail/contact_me.php";
 
-        var name = $("input#name").val();
-        var email = $("input#email").val();
-        var message = $("textarea#message").val();
+   /* Send the data using post and put the results in a div */
+   /* I am not aborting previous request because It's an asynchronous request, meaning 
+      Once it's sent it's out there. but in case you want to abort it  you can do it by  
+      abort(). jQuery Ajax methods return an XMLHttpRequest object, so you can just use abort(). */
+      ajaxRequest= $.ajax({
+           url: url,
+           type: "post",
+           data: values
+       });
 
-    
-         console.log(email);
-    if(email!=""){
-        if (name.indexOf(' ') >= 0) {
-            name = name.split(' ').slice(0, -1).join(' ');
-         }
-         $.ajax({
-         url: $("#contact-form").attr('action'),
-         type: "POST",
-        data: {
-        name: name,
-        email: email,
-        message: message
-       },
-      }).done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-    }).fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
+     /*  request cab be abort by ajaxRequest.abort() */
+
+    ajaxRequest.done(function (response, textStatus, jqXHR){
+         // show successfully for submit message
+         $("#messages").html('Submitted successfully');
     });
-    
-}
 
-else{
-    console.log("The following error occurred");
-}
-});
+    /* On failure of request this function will be called  */
+    ajaxRequest.fail(function (){
 
-    // $("#contact-form input,#contact-form textarea").jqBootstrapValidation({
-    //     preventSubmit: true,
-    //     submitError: function($form, event, errors) {
-    //         // additional error messages or events
-    //     },
-    //     submitSuccess: function($form, event) {
-    //         event.preventDefault(); // prevent default submit behaviour
-    //         // get values from FORM
-    //         var name = $("input#name").val();
-    //         var email = $("input#email").val();
-    //         var message = $("textarea#message").val();
-    //       // Check for white space in name for Success/Fail message
-    //         if (name.indexOf(' ') >= 0) {
-    //             name = name.split(' ').slice(0, -1).join(' ');
-    //         }
-    //         $.ajax({
-    //             url: $("#contact-form").attr('action'),
-    //             type: "POST",
-    //             data: {
-    //                 name: name,
-    //                 email: email,
-    //                 message: message
-    //             },
-    //             cache: false,
-    //             success: function() {
-    //                 // Success message
-    //                 $('#messages').html("<div class='alert alert-success'>");
-    //                 $('#messages > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-    //                     .append("</button>");
-    //                 $('#messages > .alert-success')
-    //                     .append("<strong>Your message has been sent. </strong>");
-    //                 $('#messages > .alert-success')
-    //                     .append('</div>');
-
-    //                 //clear all fields
-    //                 $('#contact-form').trigger("reset");
-    //             },
-    //             error: function() {
-    //                 // Fail message
-    //                 $('#messages').html("<div class='alert alert-danger'>");
-    //                 $('#messages > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-    //                     .append("</button>");
-    //                 $('#messages > .alert-danger').append($("<strong>").text("Sorry " + name + ", it seems that my mail server is not responding. Please try again later!"));
-    //                 $('#messages > .alert-danger').append('</div>');
-    //                 //clear all fields
-    //                 $('#contact-form').trigger("reset");
-    //             },
-    //         });
-    //     },
-    //     filter: function() {
-    //         return $(this).is(":visible");
-    //     },
-    // });
-
-    // $("a[data-toggle=\"tab\"]").click(function(e) {
-    //     e.preventDefault();
-    //     $(this).tab("show");
-    // });
-});
-
-
-/*When clicking on Full hide fail/success boxes */
-// $('#name').focus(function() {
-//     $('#messa').html('');
-// });
+      // show error
+      $("#messages").html('There is error while submit');
+    });
+})
