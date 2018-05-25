@@ -42,7 +42,7 @@
         <div class="container">
             <h3 class="display-4"><b>Contact</b></h3>
             <hr class="styleHr">
-            <form id="contactForm">
+            <form id="contact-form" method="POST" action="contact_me.php" role="form">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputName4">Name</label>
@@ -60,7 +60,7 @@
                         <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
                     </div>
                 </div>
-                <div id="success"></div>
+                <div class="messages"></div>
                 <button type="submit" class="btn btn-light">Submit</button>
             </form>
         </div>
