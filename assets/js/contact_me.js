@@ -1,24 +1,24 @@
 
 $(function() {
     // Get the form.
-    var form = $('#contact-form');
+    // var form = $('#contact-form');
 
     // Get the messages div.
     var formMessages = $('.messages');
 
     // TODO: The rest of the code will go here...
     // Set up an event listener for the contact form.
-    $(form).on('submit',function(event) {
+    $('#contact-form').on('submit',function(event) {
         // Stop the browser from submitting the form.
         event.preventDefault();
 
         // TODO
         // Serialize the form data.
-    var formData = $(form).serialize();
+    var formData = $('#contact-form').serialize();
     // Submit the form using AJAX.
     $.ajax({
         type: 'POST',
-        url: $(form).attr('action'),
+        url: $('#contact-form').attr('action'),
         data: formData
     }).done(function(response) {
         // Make sure that the formMessages div has the 'success' class.
