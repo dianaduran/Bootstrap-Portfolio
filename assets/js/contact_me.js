@@ -2,16 +2,18 @@
 
 $(function() {
 
-    var name = $("input#name").val();
-    var email = $("input#email").val();
-    var message = $("textarea#message").val();
-
+    
     $("#contact-form").submit(function(event){
 
         // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
-    
 
+        var name = $("input#name").val();
+        var email = $("input#email").val();
+        var message = $("textarea#message").val();
+
+    
+         console.log(email);
     if(email!=""){
         if (name.indexOf(' ') >= 0) {
             name = name.split(' ').slice(0, -1).join(' ');
