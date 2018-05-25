@@ -44,7 +44,7 @@
 
     } else {
         // Not a POST request, set a 403 (forbidden) response code.
-        http_response_code(403);
+        http_response_code(405);
         echo "There was a problem with your submission, please try again.";
     }
 
