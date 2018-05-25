@@ -6,6 +6,12 @@ $(function() {
     var email = $("input#email").val();
     var message = $("textarea#message").val();
 
+    $("#contact-form").submit(function(event){
+
+        // Prevent default posting of form - put here to work in case of errors
+        event.preventDefault();
+    
+
     if(email!=""){
         if (name.indexOf(' ') >= 0) {
             name = name.split(' ').slice(0, -1).join(' ');
@@ -18,10 +24,23 @@ $(function() {
         email: email,
         message: message
        },
-    }).then(function(){
-        console.log("send");
-    })
+      }).done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log("Hooray, it worked!");
+    }).fail(function (jqXHR, textStatus, errorThrown){
+        // Log the error to the console
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown
+        );
+    });
+    
 }
+
+else{
+    console.log("The following error occurred");
+}
+});
 
     // $("#contact-form input,#contact-form textarea").jqBootstrapValidation({
     //     preventSubmit: true,
@@ -85,6 +104,6 @@ $(function() {
 
 
 /*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
-    $('#success').html('');
-});
+// $('#name').focus(function() {
+//     $('#messa').html('');
+// });
