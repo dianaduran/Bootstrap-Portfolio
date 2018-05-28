@@ -8,11 +8,14 @@ $("#contact-form").submit(function(event) {
    /* Clear result div*/
    $("#messages").html('');
 
-   
-
-   var values = $("#contact-form form").serialize();
+   var values = {
+       name:$("#name").val(),
+       email_address:$("#email").val(),
+       message:$("#message").val()
+   }
    console.log(values);
    var url=$("#contact-form").attr('action');
+   console.log(url);
 
       ajaxRequest= $.ajax({
            url: url,
@@ -25,9 +28,9 @@ $("#contact-form").submit(function(event) {
          $("#messages").html('Submitted successfully');
     });
 
-    /* On failure of request this function will be called  */
-    ajaxRequest.fail(function (){
-      // show error
-      $("#messages").html('There is error while submit');
-    });
+    // /* On failure of request this function will be called  */
+    // ajaxRequest.fail(function (){
+    //   // show error
+    //   $("#messages").html('There is error while submit');
+    // });
 })
