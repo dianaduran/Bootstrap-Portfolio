@@ -12,19 +12,20 @@ $("#contact-form").submit(function(event) {
        name:$("#name").val(),
        email_address:$("#email").val(),
        message:$("#message").val()
-   }
+   };
    console.log(values);
    var url="contact_me.php";
    console.log(url);
 
       ajaxRequest= $.ajax({
            url: url,
-           type: "post",
+           type: "POST",
            data: values
        });
 
-    ajaxRequest.done(function (data){
+    ajaxRequest.done(function (data, status){
          // show successfully for submit message
+         console.log(status);
          console.log(data);
          $("#messages").html('Submitted successfully');
     });
