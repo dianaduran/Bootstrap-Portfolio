@@ -8,8 +8,10 @@ $("#contact-form").submit(function(event) {
    /* Clear result div*/
    $("#messages").html('');
 
-   /* Get from elements values */
-   var values = $(this).serialize();
+   
+
+   var values = $("#contact-form form").serialize();
+   console.log(values);
    var url=$("#contact-form").attr('action');
 
       ajaxRequest= $.ajax({
@@ -18,8 +20,6 @@ $("#contact-form").submit(function(event) {
            data: values
        });
 
-     /*  request cab be abort by ajaxRequest.abort() */
-
     ajaxRequest.done(function (response, textStatus, jqXHR){
          // show successfully for submit message
          $("#messages").html('Submitted successfully');
@@ -27,7 +27,6 @@ $("#contact-form").submit(function(event) {
 
     /* On failure of request this function will be called  */
     ajaxRequest.fail(function (){
-
       // show error
       $("#messages").html('There is error while submit');
     });
