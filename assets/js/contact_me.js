@@ -14,7 +14,7 @@ $("#contact-form").submit(function(event) {
        message:$("#message").val()
    }
    console.log(values);
-   var url="./contact_me.php";
+   var url="contact_me.php";
    console.log(url);
 
       ajaxRequest= $.ajax({
