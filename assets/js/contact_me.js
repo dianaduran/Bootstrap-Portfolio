@@ -17,22 +17,26 @@ $("#contact-form").submit(function(event) {
    var url="contact_me.php";
    console.log(url);
 
-      ajaxRequest= $.ajax({
-           url: url,
-           type: "POST",
-           data: values
-       });
+   $.post(url, values, function(data, status){
+       alert("Data: " + data + "\nStatus: " + status);
+   });
 
-    ajaxRequest.done(function (data, status){
-         // show successfully for submit message
-         console.log(status);
-         console.log(data);
-         $("#messages").html('Submitted successfully');
-    });
+    //   ajaxRequest= $.ajax({
+    //        url: url,
+    //        type: "POST",
+    //        data: values
+    //    });
 
-    /* On failure of request this function will be called  */
-    ajaxRequest.fail(function (){
-      // show error
-      $("#messages").html('There is error while submit');
-    });
+    // ajaxRequest.done(function (data, status){
+    //      // show successfully for submit message
+    //      console.log(status);
+    //      console.log(data);
+    //      $("#messages").html('Submitted successfully');
+    // });
+
+    // /* On failure of request this function will be called  */
+    // ajaxRequest.fail(function (){
+    //   // show error
+    //   $("#messages").html('There is error while submit');
+    // });
 })
