@@ -23,14 +23,15 @@ $("#contact-form").submit(function(event) {
            data: values
        });
 
-    ajaxRequest.done(function (response, textStatus, jqXHR){
+    ajaxRequest.done(function (data){
          // show successfully for submit message
+         console.log(data);
          $("#messages").html('Submitted successfully');
     });
 
-    // /* On failure of request this function will be called  */
-    // ajaxRequest.fail(function (){
-    //   // show error
-    //   $("#messages").html('There is error while submit');
-    // });
+    /* On failure of request this function will be called  */
+    ajaxRequest.fail(function (){
+      // show error
+      $("#messages").html('There is error while submit');
+    });
 })
