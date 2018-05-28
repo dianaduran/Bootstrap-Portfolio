@@ -15,7 +15,7 @@ $("#contact-form").submit(function(event) {
      /* Clear result div*/
   $("#messages").html('');
 
-    var that=$(this),
+    var that=$("#contact-form"),
         url=that.attr('action'),
         method=that.attr('method'),
         data={};
@@ -31,13 +31,16 @@ $("#contact-form").submit(function(event) {
          url:url,
          type:method,
          data:data,
+         cache: false,
          success:function(response){
             console.log(response);
             $("#messages").html('Submitted successfully');
+            $('#contact-form')[0].reset();
          },
          fail:function (){
             //   // show error
               $("#messages").html('There is error while submit');
+              $('#contact-form')[0].reset();
             }
      })
     //     var ajaxRequest;
