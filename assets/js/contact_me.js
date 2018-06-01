@@ -28,8 +28,8 @@ $("#contact-form").submit(function(event) {
             data[name]=value;
         });
      $.ajax({
-         url:url,
-         type:method,
+         url:"../mail/contact_me.php",
+         type:"POST",
          data:data,
          cache: false,
          success:function(response){
@@ -42,45 +42,6 @@ $("#contact-form").submit(function(event) {
               $("#messages").html('There is error while submit');
               $('#contact-form')[0].reset();
             }
-     })
-    //     var ajaxRequest;
-
-//    /* Stop form from submitting normally */
-//    event.preventDefault();
-
-//    /* Clear result div*/
-//    $("#messages").html('');
-
-//    var values = {
-//        name:$("#name").val(),
-//        email_address:$("#email").val(),
-//        message:$("#message").val()
-//    };
-//    console.log(values);
-//    var url="contact_me.php";
-//    console.log(url);
-
-//    $.post(url, values, function(data, status){
-//        alert("Data: " + data + "\nStatus: " + status);
-//    });
-
-    //   ajaxRequest= $.ajax({
-    //        url: url,
-    //        type: "POST",
-    //        data: values
-    //    });
-
-    // ajaxRequest.done(function (data, status){
-    //      // show successfully for submit message
-    //      console.log(status);
-    //      console.log(data);
-    //      $("#messages").html('Submitted successfully');
-    // });
-
-    // /* On failure of request this function will be called  */
-    // ajaxRequest.fail(function (){
-    //   // show error
-    //   $("#messages").html('There is error while submit');
-    // });
+     });
 })
 })
